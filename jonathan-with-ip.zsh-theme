@@ -36,6 +36,9 @@ theme_preexec () {
 
 function _tun_ips() {
     local ipaddr
+### original line / command 'ip' not found on macOS
+#    ipaddr=$(ip a | grep -E 'tun[0-9]+' | grep -E '([0-9]{1,3}\.){3}[0-9]{1,3}' | awk '{split($0,a," "); print a[5]"("a[2]")"}')
+###
     ipaddr=$(ifconfig -a | grep -E 'tun[0-9]+' | grep -E '([0-9]{1,3}\.){3}[0-9]{1,3}' | awk '{split($0,a," "); print a[5]"("a[2]")"}')
     if [[ $(echo $ipaddr | wc -l) > 1 ]];then
         ipaddr=$(echo -e $ipaddr | sed ':a;N;$!ba;s/\n/,/g')
