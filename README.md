@@ -13,5 +13,28 @@ $ chmod 755 install.sh
 $ ./install.sh
 ```
 
+# Goals
+
+- [ ] configure dotfiles for acceptable minimum standard workable across:
+    - [ ] Parrot OS
+    - [ ] Kali
+    - [ ] Ubuntu 20.01
+    - [ ] MacOS
+- [ ] desired programs across all platforms
+    - [ ] zsh
+    - [ ] oh-my-zsh
+    - [ ] tmux
+    - [ ] vim
+
+## Plugins
+
+### zsh - N/A
+
+### oh-my-zsh
+
+### tmux
+
+### vim
+
 # dotfiles
 dotfile repo for easy synchronization across multiple machines
