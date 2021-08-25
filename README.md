@@ -12,6 +12,8 @@ $ cd dotfiles/
 $ chmod 755 install.sh
 $ ./install.sh
 ```
+Note: Since this repo is private, for VMs it will be easiest to generate a new
+key pair and register with GitHub.
 
 # Goals
 
@@ -26,15 +28,37 @@ $ ./install.sh
     - [ ] tmux
     - [ ] vim
 
-## Plugins
+## Configuration files
 
-### zsh - N/A
+### zsh
+
+General path to oh-my-zsh installation
+
+Option 1 - should work if $HOME is present in each systems environment
+```bash
+export ZSH="$HOME"
+```
+
+Option 2 - environment-specific
+```bash
+# test for environment
+if $(uname -a) == "Darwin" # macOS
+    do export ZSH="$HOME/.oh-my-zsh"
+elif $(uname -a == {{ UBUNTU }})
+    do export ZSH=""/home/$(whoami)/.oh-my-zsh"
+fi
+```
 
 ### oh-my-zsh
 
 ### tmux
 
 ### vim
+
+## Flow
+
+New User:
+clone -> install -> 
 
 # dotfiles
 dotfile repo for easy synchronization across multiple machines
