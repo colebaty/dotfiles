@@ -66,7 +66,7 @@ A manifest - a list of dotfiles in `~` that we're monitoring for changes.
 
 #### Sample tab-delimited file manifest file
 ```
-<FOI>   <date of last push to repo> <machine last pushed from>
+<FOI>   <date of last edit> <machine last pushed from>
 .tmux.conf  1633389432  Macbook-Pro.local
 ```
 
