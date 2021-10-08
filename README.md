@@ -4,7 +4,7 @@ My working environment has evolved to span multiple \*nix-based machines. This
 repo is intended to ease synchronization of dotfiles across many machines so
 that the working environment is as similar as possible across all machines.
 
-# Installation
+# Installation - in progress
 
 ```bash
 $ git clone git@github.com:colebaty/dotfiles.git
@@ -27,6 +27,7 @@ key pair and register with GitHub.
     - [ ] oh-my-zsh
     - [ ] tmux
     - [ ] vim
+- [ ] store repo on home lab server?
 
 ## Configuration files
 
@@ -55,10 +56,46 @@ fi
 
 ### vim
 
+## Structure 
+
+Two types of functionality: local and remote
+
+### Local
+
+A manifest - a list of dotfiles in `~` that we're monitoring for changes. 
+
+#### Sample tab-delimited file manifest file
+```
+<FOI>   <date of last push to repo> <machine last pushed from>
+.tmux.conf  1633389432  Macbook-Pro.local
+```
+
+Each line contains the name of the FOI, the (epoch) date of last modification,
+and the name of the node it was pushed from.  We assume all FOIs are located in `~`.
+
+Manifest, local copies of files of interest (FOIs) are stored in `~/.dotfiles`.
+
+Periodically polls `~` for changes; compares output of `date -j -f "%a %b %d %T %Z %Y" "`date -r <FOI>`" "+%s"` 
+to the corresponding FOI's date of last push to the repo. This command comes straight 
+from the `man` page for the `date` command. 
+
+If the local file is newer, push it to the repo. If the remote counterpart is newer, pull it.
+
+Could probably leverage `git` functionality for a lot of this.
+
+#### Getting file info
+```bash
+date -j -f "%a %b %d %T %Z %Y" "`date -r <FOI>`" "+%s"  # get epoch date of FOI
+uname -m                                                # node name
+```
+
+May want to consider maintaining a list of hosts/nodenames allowed to push to
+repo.
+
 ## Flow
 
-New User:
-clone -> install -> 
+New instance;
+clone -> install -> pull/update
 
 # dotfiles
 dotfile repo for easy synchronization across multiple machines
