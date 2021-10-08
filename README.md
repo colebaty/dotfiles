@@ -95,7 +95,7 @@ repo.
 ## Flow
 
 New instance;
-clone -> install -> pull/update
+clone -> install -> pull/update -> refresh every shell
 
 # dotfiles
 dotfile repo for easy synchronization across multiple machines
