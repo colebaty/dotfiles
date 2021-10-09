@@ -99,3 +99,31 @@ clone -> install -> pull/update -> refresh every shell
 
 # dotfiles
 dotfile repo for easy synchronization across multiple machines
+
+# Algorithm
+
+```bash
+# update local
+pull if needed - last pull 2+ weeks old
+
+for each file in manifest
+    compare date of each manifest file to date of each local file
+    if manifest file newer
+        copy manifest file to ~
+        prompt to refresh each tmux pane automatically
+            if new local .tmux.conf
+                tmux source ~/.tmux.conf
+            if new local .zshrc
+                for each session
+                    for each window
+                        sync panes
+                        source ~/.zshrc
+            if new .vimrc
+                probably just manually update any open instances
+    if local file newer
+        copy local file to ~/.dotfiles
+        set changes made flag
+
+if changes made
+    git commit, push
+```

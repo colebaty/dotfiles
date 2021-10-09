@@ -4,7 +4,8 @@
 DOTFILES_DIR=$HOME/.dotfiles;
 MANIFEST=$DOTFILES_DIR/manifest;
 GIT_DIR=$DOTFILES_DIR/.git;
-DATE_LAST_PULL=$(date -j -f "%a %b %d %T %Z %Y" "`date -r $GIT_DIR/FETCH_HEAD`" "+%s");
+#DATE_LAST_PULL=$(date -j -f "%a %b %d %T %Z %Y" "`date -r $GIT_DIR/FETCH_HEAD`" "+%s");
+DATE_LAST_PULL=$(date -j -f "%a %b %d %T %Z %Y" "`date -r FETCH_HEAD_TEST`" "+%s");
 MACHINE=`uname -n`;
 SOURCES=$DOTFILES_DIR/sources
 CHANGES_MADE=false;
@@ -13,7 +14,7 @@ CHANGES_MADE=false;
 # duration of two weeks in seconds; for comparison of epoch times
 let UPDATE_INTERVAL=(60 * 60 * 24 * 14);
 
-# pull most recent copy
+# pull if local copy is older than 2wks
 let TODAY=$(date -j -f "%a %b %d %T %Z %Y" "`date`" "+%s");
 
 TIME_DELTA=$(($TODAY - $DATE_LAST_PULL))
@@ -28,8 +29,10 @@ else
     echo "no need to pull";
 fi
 
-echo "machine is $MACHINE";
-if [[ `grep "$MACHINE" $SOURCES` -eq 0 ]]; then
+# display machine info
+echo "this machine is $MACHINE";
+grep -q "$MACHINE" $SOURCES 
+if [[ $? -eq 0 ]]; then
     echo "$MACHINE is in sources file";
 fi
 
@@ -42,6 +45,8 @@ for n in `cat $MANIFEST | awk '{ print $1 }'`; do
         echo "need to update \$MANIFEST_DATE for $n";
     elif [[ $LOCAL_DATE -le $MANIFEST_DATE ]]; then
         echo "need to copy $DOTFILES_DIR/$n to $HOME";
+        echo "set \$CHANGES_MADE to true";
+        CHANGES_MADE=true;
     fi
 done
 
