@@ -46,9 +46,9 @@ for n in `cat $MANIFEST | awk '{ print $1 }'`; do
         echo "need to copy $HOME/$n to $DOTFILES_DIR";
         echo "need to update $n in $MANIFEST: date and machine";
         CHANGES_MADE=true;
+        echo "set \$CHANGES_MADE to true";
     elif [[ $LOCAL_DATE -le $MANIFEST_DATE ]]; then
         echo "need to copy $DOTFILES_DIR/$n to $HOME";
-        echo "set \$CHANGES_MADE to true";
     fi
 done
 
