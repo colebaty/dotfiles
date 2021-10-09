@@ -138,7 +138,7 @@ if changes made
 ## In-place modification of manifest date
 
 ```bash
-sed  -I 's/$n[whitespace][date]/$n[whitespace][$LOCAL_DATE]/'
+sed  -I 's/$n[whitespace][0-9]/$n[whitespace][$LOCAL_DATE]/'
 ```
 
 # TODO
