@@ -4,13 +4,19 @@ My working environment has evolved to span multiple \*nix-based machines. This
 repo is intended to ease synchronization of dotfiles across many machines so
 that the working environment is as similar as possible across all machines.
 
+# Requirements
+- `git`
+
+
 # Installation - in progress
+
+In your home directory, execute the following commands:
 
 ```bash
 $ git clone git@github.com:colebaty/dotfiles.git
-$ cd dotfiles/
-$ chmod 755 install.sh
-$ ./install.sh
+$ cd .dotfiles
+$ chmod 755 run.sh
+$ ./run.sh
 ```
 Note: Since this repo is private, for VMs it will be easiest to generate a new
 key pair and register with GitHub.
@@ -108,7 +114,11 @@ pull if needed - last pull 2+ weeks old
 
 for each file in manifest
     compare date of each manifest file to date of each local file
-    if manifest file newer
+    if local file newer
+        copy local file to ~/.dotfiles
+        update manifest with $TODAY - sed??
+        set changes made flag
+    else if manifest file newer
         copy manifest file to ~
         prompt to refresh each tmux pane automatically
             if new local .tmux.conf
@@ -120,10 +130,16 @@ for each file in manifest
                         source ~/.zshrc
             if new .vimrc
                 probably just manually update any open instances
-    if local file newer
-        copy local file to ~/.dotfiles
-        set changes made flag
 
 if changes made
     git commit, push
 ```
+
+## In-place modification of manifest date
+
+```bash
+sed  -I 's/$n[whitespace][date]/$n[whitespace][$LOCAL_DATE]/'
+```
+
+# TODO
+- [ ] Machine-sepecific settings? match by machine name.

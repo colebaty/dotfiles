@@ -31,10 +31,12 @@ fi
 
 # display machine info
 echo "this machine is $MACHINE";
-grep -q "$MACHINE" $SOURCES 
-if [[ $? -eq 0 ]]; then
-    echo "$MACHINE is in sources file";
+echo -n "$MACHINE is";
+grep -q "$MACHINE" $SOURCES     # the order of these commands is important
+if [[ $? -ne 0 ]]; then         # because we're expecing $? to be the exit
+    echo -n " not";             # code of the grep command
 fi
+echo " in sources file";
 
 # compare $MANIFEST date to local date
 for n in `cat $MANIFEST | awk '{ print $1 }'`; do
@@ -42,24 +44,18 @@ for n in `cat $MANIFEST | awk '{ print $1 }'`; do
     MANIFEST_DATE=$(grep $n $MANIFEST | awk '{ print $2 }');
     if [[ $LOCAL_DATE -gt $MANIFEST_DATE ]]; then
         echo "need to copy $HOME/$n to $DOTFILES_DIR";
-        echo "need to update \$MANIFEST_DATE for $n";
+        echo "need to update $n in $MANIFEST: date and machine";
+        CHANGES_MADE=true;
     elif [[ $LOCAL_DATE -le $MANIFEST_DATE ]]; then
         echo "need to copy $DOTFILES_DIR/$n to $HOME";
         echo "set \$CHANGES_MADE to true";
-        CHANGES_MADE=true;
     fi
 done
-
-# KEEP
-# get file info for each file in manifest
-# for n in `cat manifest | awk '{ print $1 }'`; do
- #    DATE=$(date -j -f "%a %b %d %T %Z %Y" "`date -r $HOME/$n`" "+%s");  # get epoch date of FOI
-  #   echo -e "$n  \\t$DATE\\t$MACHINE" >> manifest; # two extra spaces after $n for tab alignment purposes
-# done
 
 # push to repo if anything was modified
 if [ "$CHANGES_MADE" = true ]; then
     echo "need to commit and push";
-    # git commit -am  "updated on `date` from `uname -n`";
+    echo "updated on $TODAY by $MACHINE"
+    # git commit -am  "updated on $TODAY by $MACHINE"
     # git push;
 fi
