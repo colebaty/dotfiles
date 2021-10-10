@@ -1,9 +1,8 @@
 .gitignore
 
+FETCH_HEAD_TEST
 *.swp
 *Test.sh
-*TEST*
 *.copy
 
 /tests/
-
