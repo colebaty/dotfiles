@@ -1,2 +1,9 @@
+.gitignore
+
 *.swp
 *Test.sh
+*TEST*
+*.copy
+
+/tests/
+
