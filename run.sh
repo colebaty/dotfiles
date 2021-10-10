@@ -30,11 +30,13 @@ else
 fi
 
 # display machine info
+NEW_MACHINE=false;
 echo "this machine is $MACHINE";
 echo -n "$MACHINE is";
 grep -q "$MACHINE" $SOURCES     # the order of these commands is important
 if [[ $? -ne 0 ]]; then         # because we're expecing $? to be the exit
     echo -n " not";             # code of the grep command
+    NEW_MACHINE=true;
 fi
 echo " in sources file";
 
@@ -45,6 +47,7 @@ for n in `cat $MANIFEST | awk '{ print $1 }'`; do
     if [[ $LOCAL_DATE -gt $MANIFEST_DATE ]]; then
         echo "need to copy $HOME/$n to $DOTFILES_DIR";
         echo "need to update $n in $MANIFEST: date and machine";
+        echo "TODO: update tmux workspace? (Y/n)"
         CHANGES_MADE=true;
         echo "set \$CHANGES_MADE to true";
     elif [[ $LOCAL_DATE -le $MANIFEST_DATE ]]; then
@@ -52,10 +55,22 @@ for n in `cat $MANIFEST | awk '{ print $1 }'`; do
     fi
 done
 
+# closeout
+
 # push to repo if anything was modified
 if [ "$CHANGES_MADE" = true ]; then
-    echo "need to commit and push";
-    echo "updated on $TODAY by $MACHINE"
-    # git commit -am  "updated on $TODAY by $MACHINE"
-    # git push;
+    echo "changes were made to dotfiles"
+    echo "push to repo? (Y/n)"
+        #if yes
+            echo "updated on $TODAY by $MACHINE"
+            # git commit -am  "updated on $TODAY by $MACHINE"
+            # git push;
+        #else
+            #unstage changes
+fi
+
+# if this device is not on machines list, prompt to add
+if [ "$NEW_MACHINE" = true ]; then
+    echo "$MACHINE is not in sources list";
+    echo "add to sources? (Y/n)";
 fi
