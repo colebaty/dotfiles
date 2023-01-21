@@ -1,31 +1,51 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 <<<<<<< HEAD
+<<<<<<< HEAD
 export PATH="$PATH:/opt:/opt/homebrew/bin:/opt/homebrew/opt:$HOME/.scripts:$HOME/opt"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/cole/.oh-my-zsh"
 =======
+=======
+>>>>>>> ec7da34 (merge conflict)
 export PATH="$PATH:/opt:/opt/homebrew/bin:/opt/homebrew/opt:$HOME/.scripts"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/colebaty/.oh-my-zsh"
+<<<<<<< HEAD
 >>>>>>> f70e3d2 (dotfile capture for tweaking)
+=======
+=======
+export PATH="$PATH:/opt:/opt/homebrew/bin:/opt/homebrew/opt:$HOME/.scripts:$HOME/opt"
+
+# Path to your oh-my-zsh installation.
+export ZSH="/home/cole/.oh-my-zsh"
+>>>>>>> 1bef7fc (initial commit)
+>>>>>>> ec7da34 (merge conflict)
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 <<<<<<< HEAD
+<<<<<<< HEAD
 ZSH_THEME="gallois"
 =======
 ZSH_THEME="jonathan"
 >>>>>>> f70e3d2 (dotfile capture for tweaking)
+=======
+ZSH_THEME="jonathan"
+=======
+ZSH_THEME="gallois"
+>>>>>>> 1bef7fc (initial commit)
+>>>>>>> ec7da34 (merge conflict)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
+<<<<<<< HEAD
 <<<<<<< HEAD
 ZSH_THEME_RANDOM_CANDIDATES=(
     wedisagree
@@ -44,6 +64,25 @@ ZSH_THEME_RANDOM_CANDIDATES=(
 =======
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 >>>>>>> f70e3d2 (dotfile capture for tweaking)
+=======
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+=======
+ZSH_THEME_RANDOM_CANDIDATES=(
+    wedisagree
+    af-magic
+    afowler
+    bureau
+    darkblood
+    eastwood
+    gallois
+    kardan
+    minimal
+    sammy
+    theunraveler
+    wezm
+)
+>>>>>>> 1bef7fc (initial commit)
+>>>>>>> ec7da34 (merge conflict)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -102,6 +141,7 @@ ZSH_THEME_RANDOM_CANDIDATES=(
 plugins=(
 		git
 <<<<<<< HEAD
+<<<<<<< HEAD
 		tmux
         common-aliases
         zsh-autosuggestions
@@ -109,12 +149,25 @@ plugins=(
         ubuntu
         docker
 =======
+=======
+>>>>>>> ec7da34 (merge conflict)
 		zsh-autosuggestions
 		zsh-syntax-highlighting
 		tmux
 		osx
 		common-aliases
+<<<<<<< HEAD
 >>>>>>> f70e3d2 (dotfile capture for tweaking)
+=======
+=======
+		tmux
+        common-aliases
+        zsh-autosuggestions
+        zsh-syntax-highlighting
+        ubuntu
+        docker
+>>>>>>> 1bef7fc (initial commit)
+>>>>>>> ec7da34 (merge conflict)
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -128,18 +181,31 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 <<<<<<< HEAD
+<<<<<<< HEAD
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='mvim'
 fi
 =======
+=======
+>>>>>>> ec7da34 (merge conflict)
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
 # fi
+<<<<<<< HEAD
 >>>>>>> f70e3d2 (dotfile capture for tweaking)
+=======
+=======
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
+>>>>>>> 1bef7fc (initial commit)
+>>>>>>> ec7da34 (merge conflict)
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -152,6 +218,7 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 # ping aliases
@@ -196,3 +263,48 @@ source ~/.scripts/agent.sh 2>/dev/null
 =======
 export PATH="/opt/homebrew/bin:$PATH"
 >>>>>>> f70e3d2 (dotfile capture for tweaking)
+=======
+export PATH="/opt/homebrew/bin:$PATH"
+=======
+
+# ping aliases
+alias ping='ping -w 5'
+
+# source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ssh-agent stuff
+# SSH_ENV="$HOME/.ssh/agent-environment"
+# 
+# function start_agent {
+  # echo "Initialising new SSH agent..."
+  # /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+  # echo succeeded
+  # chmod 600 "${SSH_ENV}"
+  # . "${SSH_ENV}" > /dev/null
+  # /usr/bin/ssh-add;
+# }
+# 
+# # Source SSH settings, if applicable
+# 
+# if [ -f "${SSH_ENV}" ]; then
+  # . "${SSH_ENV}" > /dev/null
+  # #ps ${SSH_AGENT_PID} doesn't work under cywgin
+  # ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+      # start_agent;
+  # }
+# else
+  # start_agent;
+# fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
+alias keys="ssh-add -l"
+alias skewl='ssh cs_tbaty002@linux.cs.odu.edu -t "zsh --login"'
+
+# enables ssh-agent persistence after invocation
+source ~/.scripts/agent.sh 2>/dev/null
+>>>>>>> 1bef7fc (initial commit)
+>>>>>>> ec7da34 (merge conflict)
