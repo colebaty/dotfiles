@@ -1,20 +1,32 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+<<<<<<< HEAD
 export PATH="$PATH:/opt:/opt/homebrew/bin:/opt/homebrew/opt:$HOME/.scripts:$HOME/opt"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/cole/.oh-my-zsh"
+=======
+export PATH="$PATH:/opt:/opt/homebrew/bin:/opt/homebrew/opt:$HOME/.scripts"
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/colebaty/.oh-my-zsh"
+>>>>>>> f70e3d2 (dotfile capture for tweaking)
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+<<<<<<< HEAD
 ZSH_THEME="gallois"
+=======
+ZSH_THEME="jonathan"
+>>>>>>> f70e3d2 (dotfile capture for tweaking)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
+<<<<<<< HEAD
 ZSH_THEME_RANDOM_CANDIDATES=(
     wedisagree
     af-magic
@@ -29,6 +41,9 @@ ZSH_THEME_RANDOM_CANDIDATES=(
     theunraveler
     wezm
 )
+=======
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+>>>>>>> f70e3d2 (dotfile capture for tweaking)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -86,12 +101,20 @@ ZSH_THEME_RANDOM_CANDIDATES=(
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 		git
+<<<<<<< HEAD
 		tmux
         common-aliases
         zsh-autosuggestions
         zsh-syntax-highlighting
         ubuntu
         docker
+=======
+		zsh-autosuggestions
+		zsh-syntax-highlighting
+		tmux
+		osx
+		common-aliases
+>>>>>>> f70e3d2 (dotfile capture for tweaking)
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -104,11 +127,19 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
+<<<<<<< HEAD
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='mvim'
 fi
+=======
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+>>>>>>> f70e3d2 (dotfile capture for tweaking)
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -121,6 +152,7 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+<<<<<<< HEAD
 
 # ping aliases
 alias ping='ping -w 5'
@@ -161,3 +193,6 @@ alias skewl='ssh cs_tbaty002@linux.cs.odu.edu -t "zsh --login"'
 
 # enables ssh-agent persistence after invocation
 source ~/.scripts/agent.sh 2>/dev/null
+=======
+export PATH="/opt/homebrew/bin:$PATH"
+>>>>>>> f70e3d2 (dotfile capture for tweaking)
