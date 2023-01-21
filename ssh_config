@@ -1,0 +1,17 @@
+Host *
+    ForwardAgent yes
+
+Host cole.server
+    User cole
+    Port 2220
+
+Host cole.kali
+    User kali
+
+Host localhost
+    User cole
+    Port 8260
+
+Host cole.yoga
+    User cole
+    Port 8260

@@ -9,7 +9,7 @@ export ZSH="/home/cole/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="xiong-chiamiov"
+ZSH_THEME="gallois"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -160,4 +160,4 @@ alias keys="ssh-add -l"
 alias skewl='ssh cs_tbaty002@linux.cs.odu.edu -t "zsh --login"'
 
 # enables ssh-agent persistence after invocation
-source ~/.scripts/agent.sh 2>/dev/null
+source .scripts/agent.sh 2>/dev/null
