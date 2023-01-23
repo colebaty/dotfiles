@@ -1,0 +1,3 @@
+[submodule "scripts"]
+	path = scripts
+	url = ssh://git@cole.server:2220/home/git/scripts.git
