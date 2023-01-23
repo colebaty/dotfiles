@@ -132,4 +132,4 @@ alias keys="ssh-add -l"
 alias skewl='ssh cs_tbaty002@linux.cs.odu.edu -t "zsh --login"'
 
 # enables ssh-agent persistence after invocation
-source ~/.scripts/agent.sh 2>/dev/null
+source $SCRIPTS/agent.sh 2>/dev/null
