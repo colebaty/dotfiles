@@ -5,4 +5,4 @@ FETCH_HEAD_TEST
 *Test.sh
 *.copy
 
-/tests/
+git-sim*
