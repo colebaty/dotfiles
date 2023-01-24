@@ -135,6 +135,18 @@ setup_shell() {
         chsh -s "$zsh_path"
         info "default shell changed to $zsh_path"
     fi
+
+    # install oh-my-zsh with syntax highlighting, autosuggestions
+    if [[ "$SHELL" == "$zsh_path" ]] && [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+        export KEEP_ZSHRC='yes' 
+        export RUNZSH='no'
+        
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # from oh-my-zsh github
+        
+        export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+        zsh -c 'git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_CUSTOM/plugins/zsh-autosuggestions"'
+        zsh -c 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"'
+    fi
 }
 
 case "$1" in
@@ -156,7 +168,7 @@ case "$1" in
         setup_git
         ;;
     *)
-        echo -e $"\nUsage: $(basename "$0") {backup|link|git|all}\n"
+        echo -e $"\nUsage: $(basename "$0") {backup|link|shell|git|all}\n"
         exit 1
         ;;
 esac
