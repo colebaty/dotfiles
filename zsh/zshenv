@@ -1,2 +1,2 @@
-export DOTFILES=$(pwd)
+export DOTFILES="$HOME/dotfiles"
 export SCRIPTS=$DOTFILES/scripts
