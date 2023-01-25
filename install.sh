@@ -137,7 +137,7 @@ setup_shell() {
     fi
 
     # install oh-my-zsh with syntax highlighting, autosuggestions
-    if [[ "$SHELL" == "$zsh_path" ]] && [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+    if [[ "$SHELL" != "$zsh_path" ]] && [[ ! -d "$HOME/.oh-my-zsh" ]]; then
         export KEEP_ZSHRC='yes' 
         export RUNZSH='no'
         
