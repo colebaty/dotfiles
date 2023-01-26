@@ -62,11 +62,6 @@ backup() {
     done
 }
 
-init_git_submodule() {
-    cd "$DOTFILES"
-    git submodule update --init
-}
-
 setup_symlinks() {
     title "Creating symlinks"
 
@@ -99,6 +94,11 @@ setup_symlinks() {
     done
 }
 
+init_git_submodule() {
+    cd "$DOTFILES"
+    git submodule update --init
+}
+
 setup_git() {
     title "Setting up Git"
 
@@ -113,6 +113,8 @@ setup_git() {
     git config -f ~/.gitconfig-local user.name "${name:-$defaultName}"
     git config -f ~/.gitconfig-local user.email "${email:-$defaultEmail}"
     git config -f ~/.gitconfig-local github.user "${github:-$defaultGithub}"
+
+    init_git_submodule
 }
 
 setup_shell() {
@@ -150,8 +152,7 @@ case "$1" in
         setup_symlinks
         ;;
     git)
-        init_git_submodule
-        #setup_git
+        setup_git
         ;;
     shell)
         setup_shell
