@@ -62,6 +62,10 @@ backup() {
     done
 }
 
+init_git_submodule() {
+    cd "$DOTFILES"
+    git submodule update --init
+}
 
 setup_symlinks() {
     title "Creating symlinks"
@@ -157,7 +161,8 @@ case "$1" in
         setup_symlinks
         ;;
     git)
-        setup_git
+        init_git_submodule
+        #setup_git
         ;;
     shell)
         setup_shell
