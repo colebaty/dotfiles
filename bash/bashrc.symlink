@@ -119,4 +119,4 @@ if ! shopt -oq posix; then
 fi
 
 # ssh-agent persistence
-source ~/.scripts/agent.sh 2>/dev/null
+source $SCRIPTS/agent.sh 2>/dev/null
