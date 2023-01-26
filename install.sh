@@ -53,7 +53,7 @@ backup() {
     done
 
     for filename in "$HOME/.config/nvim" "$HOME/.vim" "$HOME/.vimrc"; do
-        if [ ! -L "$filename" ]; then
+        if [ -e "$filename" ] && [ ! -L "$filename" ]; then
             echo "backing up $filename"
             cp -rf "$filename" "$BACKUP_DIR"
         else
