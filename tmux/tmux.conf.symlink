@@ -1,6 +1,8 @@
 set -g history-limit 50000
 set -g allow-rename off
 
+set -g default-terminal "xterm-256color"
+
 # vim keybindings for pane navigation
 # might be redundant - need to dig deeper into tmux docs
 # i suspect there is a single setting that will do all this already
