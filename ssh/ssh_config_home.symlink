@@ -15,3 +15,10 @@ Host localhost
 Host cole.yoga
     User cole
     Port 8260
+
+Host pi.hole
+    User pihole
+
+Host cole.gitlab
+    User cole
+    Port 2220
