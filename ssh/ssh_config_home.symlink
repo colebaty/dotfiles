@@ -26,3 +26,7 @@ Host cole.gitlab
 Host seed
     Hostname 172.16.0.23
     User seed
+
+Host dev
+    Hostname 172.16.0.32
+    User root
