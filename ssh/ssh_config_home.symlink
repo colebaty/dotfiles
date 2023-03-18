@@ -29,4 +29,4 @@ Host seed
 
 Host dev
     Hostname 172.16.0.32
-    User root
+    User cole
