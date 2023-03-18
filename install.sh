@@ -149,7 +149,24 @@ case "$1" in
         backup
         ;;
     link)
-        setup_symlinks
+        case "$2" in
+            bash)
+                default=$(grep -v '^#' $DOTFILES/bash/defaults)
+                echo $default
+                ;;
+            ssh)
+                ;;
+            tmux)
+                ;;
+            vim)
+                ;;
+            all)
+                ;;
+            *)
+                echo -e $"\nUsage: $(basename "$0") link <bash|ssh|tmux|vim|[all]>\n"
+                exit 1
+                ;;
+        esac
         ;;
     git)
         setup_git
