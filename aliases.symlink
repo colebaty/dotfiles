@@ -6,3 +6,15 @@ alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
 alias tmuxconf='$EDITOR $ZSH_TMUX_CONFIG'
 alias keys='ssh-add -l'
+
+# bat
+if [[ -x /usr/bin/batcat ]] ; then
+   alias bat="bat --theme 'Solarized (dark)'" 
+fi
+
+# ping aliases
+alias ping='ping -w 5'
+
+#misc
+alias keys="ssh-add -l"
+alias skewl='ssh cs_tbaty002@linux.cs.odu.edu -t "zsh --login"'

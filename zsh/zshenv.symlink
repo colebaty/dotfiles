@@ -1,2 +1,2 @@
-export DOTFILES="$HOME/dotfiles"
-export SCRIPTS=$DOTFILES/scripts
+export DOTFILES=${HOME}/dotfiles
+export SCRIPTS=${DOTFILES}/scripts
