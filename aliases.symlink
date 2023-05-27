@@ -18,3 +18,5 @@ alias ping='ping -w 5'
 #misc
 alias keys="ssh-add -l"
 alias skewl='ssh cs_tbaty002@linux.cs.odu.edu -t "zsh --login"'
+alias ip='ip -c'
+alias ip='ip -c'
