@@ -24,7 +24,7 @@ Host cole.gitlab
     Port 2220
 
 Host seed
-    Hostname 172.16.0.23
+    Hostname 172.16.0.13
     User seed
 
 Host dev
