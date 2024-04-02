@@ -1,4 +1,17 @@
-# README
+# Dotfiles
+
+This repo is a fork of [Nick Nisi's dotfiles
+repo](https://github.com/nicknisi/dotfiles), in spirit if not in fact.
+
+I often find myself working on multiple \*nix machines on a given day, and the
+goal of this project is to quickly deploy my configuration files and plugins for 
+utilities like `tmux` and `vim` so that I can work in an environment I'm accustomed to.
+
+This is still a work in progress which has been on the back burner as I'm
+working through school.  I'm hoping to finish this by the end of Summer 2024.
+
+
+# Development Notes
 
 Dotfiles repo
 
